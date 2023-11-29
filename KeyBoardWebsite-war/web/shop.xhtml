@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="/Template/client/layout.xhtml">
+            <ui:define name="contents">
+                
+                <section class="bg-success py-5">
+                    <div class="container">
+                        <div class="row align-items-center py-5">
+                            <div class="col-md-8 text-white">
+                                <h1>KEYBOARD CUSTOM</h1>
+                                <p>
+                               The keyboards have a great look and great typing feel.
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <img style="width: 400px" src="assets/img/brkeyboard1.jpg" alt="About Hero"/>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <h:form>
+                    <!-- Start Content -->
+                    <div class="container py-5">
+                        <div class="row">
+                            <!--                            <div style="width: 90%"  class="col-lg-9">-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-inline shop-top-menu pb-3 pt-1">
+                                        <li class="list-inline-item">
+                                            <a class="h3 text-dark text-decoration-none mr-3" href="#"><h2>Products List</h2></a>
+                                        </li> 
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 pb-4">
+                                    <div style="float: right" class="d-flex">
+                                        <h:selectOneMenu  id="categoryID" value="#{productsMB.categoryID}" >
+                                            <f:selectItems value="#{categoryMB.showAllCategori()}" var="item" itemValue="#{item.categoryID}" itemLabel="#{item.categoryName}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <c:forEach items="#{homeMB.showListShopProduct()}" var="item">
+                                <div class="boxPro">
+                                    <div class="imgproducts">
+                                        <h:graphicImage width="250" height="250" url="assets/img/#{item.picture}" class="boximg" >
+                                              
+                                        </h:graphicImage>
+                                    </div>
+
+                                    <div class="contentbox">
+                                        
+                                        
+                                        <h:commandLink style="color: black ;margin-left: 20px;" action="#{productsMB.showProDetailsbyID(item.productID)}" value="#{item.productName}"></h:commandLink><br/>
+                                        <span style=" font-size: 1em; margin-left:20px ;">Quanlity : ${item.quanlity}</span><br/>
+                                        <p style="text-align: center; font-size: 1.6em; color: rgb(255, 0, 0);"> $${item.price} </p>
+                                        <button class="btnboxPro1"><i class="fa-solid fa-cart-shopping"></i>
+                                            <a style="color: white" href="cart.xhtml">Buy</a> 
+                                        </button>
+                                    </div>
+                                </div>
+                            </c:forEach>
+
+                            <div style="margin-top: 20px">
+
+                                <div div="row">
+                                    <ul class="pagination pagination-lg justify-content-end">
+                                       <c:forEach begin="1" end="#{homeMB.numpage()}" step="1" var="item">
+                                        <li class="page-item">
+                                            <h:form id="shop">
+                                                <h:commandButton class="page-link" action="#{homeMB.pagishop(item)}" value="#{item}"/>
+                                            </h:form>
+                                        </li>
+                                    </c:forEach>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End Content -->
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="/Template/admin/layout.xhtml">
+            <ui:define name="contentsadmin">
+                <!-- Content Start -->
+                <div class="content">
+
+                    <nav  class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+
+                        <a href="#" class="sidebar-toggler flex-shrink-0">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <h:form class="d-none d-md-flex ms-4">
+
+                            <h:inputText class="form-control bg-dark border-0" id="findproductName" value="#{productsMB.keyfind}"/>
+                            <h:commandButton class="btn-find" id="submitsame" action="#{productsMB.findByProductSame()}" value="search"/>
+                        </h:form>
+                        <div class="navbar-nav align-items-center ms-auto">
+
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                    <img class="rounded-circle me-lg-2" src="admin-style/img/user.jpg" alt="" style="width: 40px; height: 40px;"/>
+                                    <span class="d-none d-lg-inline-flex">John Doe</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                                    <a href="#" class="dropdown-item">My Profile</a>
+                                    <a href="#" class="dropdown-item">Settings</a>
+                                    <a href="#" class="dropdown-item">Log Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+
+
+                    <h:form>
+
+                        <div class="container-fluid pt-4 px-4">
+                            <div class="bg-secondary text-center rounded p-4">
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <h6 class="mb-0">List Products</h6>
+                                    <a href="">Show All</a>
+                                </div>
+                                <div class="table-responsive">
+                                    <a style="background-color: green; margin-right: 94% ;margin-bottom: 10px" class="btn btn-sm btn-primary" href="craeteProduct.xhtml">Create</a>
+                                    <h:dataTable value="#{productsMB.showProducts()}" var="item" class="table text-start align-middle table-bordered table-hover mb-0"  style="border-color: #219EBA">
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="ProductID"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.productID}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="ProductName"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.productName}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Quanlity"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.quanlity}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Price"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.price}$"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Description"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.description}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="CategoryID"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.categoryID}" />
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Image</f:facet>
+                                            <h:graphicImage url="assets/img/#{item.picture}" width="100px" height="100px"></h:graphicImage>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Action"/>
+                                            </f:facet>
+                                            <h:commandButton action="#{productsMB.showDetaiProduct(item.productID)}" value="Edit" style="background-color: #219EBA"  class="btn btn-sm btn-primary"/>
+                                            &nbsp;
+                                            <h:commandButton action="#{productsMB.deleteProduct(item.productID)}" value="Delete" style="background-color: red"  class="btn btn-sm btn-primary"/>
+                                        </h:column>
+                                    </h:dataTable>
+
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+
+                    <!-- Recent Sales End --> 
+                </div>
+                <!-- Content End -->
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

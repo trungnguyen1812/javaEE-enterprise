@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/Template/client/layout.xhtml">
+            <ui:define name="contents">
+                <!-- Start Banner Hero -->
+                <div class="banner">
+                    <div class="containerSlide">
+                        <div id="slide">
+
+                            <div class="item" style="background-image: url(assets/img/slidekit1.jpg);">
+                                <div class="content">
+                                    <div class="name">Store TN</div>
+                                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                                    <button>See more</button>
+                                </div>
+                            </div>
+                            <div class="item" style="background-image: url(assets/img/Keychron-q2-3.jpg);">
+                                <div class="content">
+                                    <div class="name">Store TN</div>
+                                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                                    <button><a href="shop.xhtml">See more</a></button>
+                                </div>
+                            </div>
+                            <div class="item" style="background-image: url(assets/img/slideM1w.jpg);">
+                                <div class="content">
+                                    <div class="name">Strore TN</div>
+                                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                                    <button><a href="shop.xhtml">See more</a></button>
+                                </div>
+                            </div>
+                            <div class="item" style="background-image: url(assets/img/slidemonka.jpg);">
+                                <div class="content">
+                                    <div class="name">Strore TN</div>
+                                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                                    <button><a href="shop.xhtml">See more</a></button>
+                                </div>
+                            </div>
+                            <div class="item" style="background-image: url(assets/img/slideLofree.jpg);">
+                                <div class="content">
+                                    <div class="name">Strore TN</div>
+                                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                                    <button><a href="shop.xhtml">See more</a></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="buttons">
+                            <button id="prev">
+                                <i class="fa-solid fa-angle-right fa-rotate-180"></i>
+                            </button>
+                            <button id="next">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- End Banner Hero -->
+
+
+                <!-- Start Categories of The Month -->
+                <section class="container py-5">
+                    <div class="row text-center pt-3">
+                        <div class="col-lg-6 m-auto">
+                            <h1 class="h1">Categories of The Month</h1>
+                            <p>
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4 p-5 mt-3">
+                            <a href="faces/shop.xhtml"><img src="./assets/img/kit1.jpg" class="rounded-circle img-fluid border img-catogory"/></a>
+                            <h5 class="text-center mt-3 mb-3">Kit Custom</h5>
+                            <div class="btn-goshop">
+                                <p class="text-center"><a href="faces/shop.xhtml" class="btn btn-success">see more</a></p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 p-5 mt-3">
+                            <a href="faces/shop.xhtml"><img src="./assets/img/keyboard1.jpg" class="rounded-circle img-fluid border img-catogory"/></a>
+                            <h2 class="h5 text-center mt-3 mb-3">Keyboard</h2>
+                            <p class="text-center"><a href="faces/shop.xhtml" class="btn btn-success">see more</a></p>
+                        </div>
+                        <div class="col-12 col-md-4 p-5 mt-3">
+                            <a href="faces/shop.xhtml"><img src="./assets/img/switch.jpg" class="rounded-circle img-fluid border img-catogory"/></a>
+                            <h2 class="h5 text-center mt-3 mb-3">Witch</h2>
+                            <p class="text-center"><a href="faces/shop.xhtml" class="btn btn-success">see more</a></p>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Categories of The Month -->
+
+
+                <!-- Start Featured Product -->
+                <section class="bg-light">
+                    <div class="container py-5">
+                        <div class="row text-center py-3">
+                            <div class="col-lg-6 m-auto">
+                                <h1 class="h1">Featured Product</h1>
+                                <p>
+                                    Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                    Excepteur sint occaecat cupidatat non proident.
+                                </p>
+                            </div>
+                        </div>
+                        <!--//Show Product-->
+                        <div class="row">
+                            <c:forEach items="#{productsMB.showLimitPro()}" var="iPro">  
+
+                                <div class="boxPro">
+                                    <div class="imgproducts">
+                                        <h:graphicImage width="250" height="250" url="assets/img/#{iPro.picture}" class="boximg" >
+                                        </h:graphicImage>
+                                    </div>
+
+                                    <div class="contentbox">
+
+                                        <h:form>
+                                            <h:commandLink   style="color: black ;margin-left: 20px;"  action="#{productsMB.showProDetailsbyID(iPro.productID)}" value="${iPro.productName}"> </h:commandLink>
+                                        </h:form>
+
+                                        <span style=" font-size: 1em; margin-left:20px ;">Quantity : #{iPro.quanlity}</span><br/>
+                                        <p style="text-align: center; font-size: 1.6em; color: rgb(255, 0, 0);"> $#{iPro.price} </p>
+
+                                        <h:form>          
+                                            <div class="btnboxPro1">
+                                                 <h:commandLink action="#{cartProcessMB.addCart(iPro.productID)}"  style="color: white;width: 40px;margin-left: 50px;"  class="">
+                                              
+                                                     <i class="fa-solid fa-cart-shopping"></i> Buy
+                             
+                                            </h:commandLink>
+                                            </div>
+                                           
+                                        </h:form>
+                                    </div>
+                                </div>
+
+                            </c:forEach>
+                            <c:if test="#{!productsMB.isMaxQuantity}" >
+                                <div class="show-more">
+
+                                </div>
+                            </c:if>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Featured Product -->
+                <!-- Start Brands -->
+                <section class="bg-light py-5">
+                    <div class="container my-4">
+                        <div class="row text-center py-3">
+                            <div class="col-lg-6 m-auto">
+                                <h1 class="h1">Our Brands</h1>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    Lorem ipsum dolor sit amet.
+                                </p>
+                            </div>
+                            <div class="col-lg-9 m-auto tempaltemo-carousel" >
+                                <div class="row d-flex flex-row" style="background-color: #E9EEF5">
+                                    <!--Controls-->
+                                    <div class="col-1 align-self-center">
+                                        <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="prev">
+                                            <i class="text-light fas fa-chevron-left"></i>
+                                        </a>
+                                    </div>
+                                    <!--End Controls-->
+
+                                    <!--Carousel Wrapper-->
+                                    <div class="col" style="background-color: #E9EEF5" >
+                                        <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="templatemo-slide-brand"
+                                             data-bs-ride="carousel">
+                                            <!--Slides-->
+                                            <div class="carousel-inner product-links-wap" role="listbox">
+
+                                                <!--First slide-->
+                                                <div class="carousel-item active">
+                                                    <div class="row" style="background-color: #E9EEF5">
+                                                        <div class="col-3 p-md-5">
+                                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/akko.png"
+                                                                             alt="Brand Logo"/></a>
+                                                        </div>
+                                                        <div class="col-3 p-md-5">
+                                                            <a href="#"><img class="img-fluid brand-img"
+                                                                             src="assets/img/Logo-Keychron.png" alt="Brand Logo"/></a>
+                                                        </div>
+                                                        <div class="col-3 p-md-5">
+                                                            <a href="#"><img class="img-fluid brand-img"
+                                                                             src="assets/img/logo-zoom.png" alt="Brand Logo"/></a>
+                                                        </div>
+                                                        <div class="col-3 p-md-5">
+                                                            <a href="#"><img class="img-fluid brand-img"
+                                                                             src="assets/img/logo-lofree.png" alt="Brand Logo"/></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--End First slide-->
+
+                                                <!--Second slide-->
+                                                <div class="carousel-item">
+                                                    <div class="row" style="background-color: #E9EEF5">
+                                                        <div class="col-3 p-md-5">
+                                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/akko.png"
+                                                                             alt="Brand Logo"/></a>
+                                                        </div>
+                                                        <div class="col-3 p-md-5">
+                                                            <a href="#"><img class="img-fluid brand-img"
+                                                                             src="assets/img/Logo-Keychron.png" alt="Brand Logo"/></a>
+                                                        </div>
+                                                        <div class="col-3 p-md-5">
+                                                            <a href="#"><img class="img-fluid brand-img"
+                                                                             src="assets/img/logo-zoom.png" alt="Brand Logo"/></a>
+                                                        </div>
+                                                        <div class="col-3 p-md-5">
+                                                            <a href="#"><img class="img-fluid brand-img"
+                                                                             src="assets/img/logo-lofree.png" alt="Brand Logo"/></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--End Second slide-->
+
+                                                <!--Third slide-->
+                                                <div class="carousel-item">
+                                                    <div class="row" style="background-color: #E9EEF5">
+                                                        <div class="col-3 p-md-5">
+                                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/akko.png"
+                                                                             alt="Brand Logo"/></a>
+                                                        </div>
+                                                        <div class="col-3 p-md-5">
+                                                            <a href="#"><img class="img-fluid brand-img"
+                                                                             src="assets/img/Logo-Keychron.png" alt="Brand Logo"/></a>
+                                                        </div>
+                                                        <div class="col-3 p-md-5">
+                                                            <a href="#"><img class="img-fluid brand-img"
+                                                                             src="assets/img/logo-zoom.png" alt="Brand Logo"/></a>
+                                                        </div>
+                                                        <div class="col-3 p-md-5">
+                                                            <a href="#"><img class="img-fluid brand-img"
+                                                                             src="assets/img/logo-lofree.png" alt="Brand Logo"/></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--End Third slide-->
+
+                                            </div>
+                                            <!--End Slides-->
+                                        </div>
+                                    </div>
+                                    <!--End Carousel Wrapper-->
+
+                                    <!--Controls-->
+                                    <div class="col-1 align-self-center">
+                                        <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="next">
+                                            <i class="text-light fas fa-chevron-right"></i>
+                                        </a>
+                                    </div>
+                                    <!--End Controls-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End Brands-->
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

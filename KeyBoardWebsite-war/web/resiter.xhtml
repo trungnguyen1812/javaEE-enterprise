@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+    <h:head>
+        <title>Login Page</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="Template/client/layout.xhtml">
+            <ui:define name="header">
+
+            </ui:define>
+            <ui:define name="contents">
+                <h:form id="register">
+                    <div class="BorderRegister">
+                        <div style="color: #219eba;padding-top: 10px; margin-top: 10px;">
+                                <img src="assets/img/logo.png" alt="" style="width: 100px;height: 60px;"/>SIGN UP
+                            </div>
+                        <div class="contentsInpRes">
+
+                            <div class="inputRes1">
+                                <h:outputText value="Email*" style="margin-left: 15px;" /><br/>
+                                <h:inputText style="width: 250px ; margin-left: 15px;border: none" id="email" value="#{accountMB.clientAccount.accountEmail}"></h:inputText>
+                                <h:messages style="color: red" for="email"/>
+                            </div>
+                               
+                            <div class="inputRes1">
+                                <h:outputText value="Full Name*"  style="margin-left: 15px;" /><br/>
+                                <h:inputText style="width: 250px ; margin-left: 15px;border: none"  id="name" value="#{accountMB.clientAccount.accountName}"></h:inputText>
+                                <h:messages style="color: red" for="name"/>
+                            </div>
+                                
+                            <div class="inputRes1">
+                                <h:outputText value="Address*" style="margin-left: 15px;"/><br/>
+                                <h:inputText style="width: 250px ; margin-left: 15px;border: none" id="address" value="#{accountMB.clientAccount.accountAddress}"></h:inputText>
+                                <h:messages style="color: red" for="address"/>
+                            </div>
+                                
+                            <div class="inputRes1">
+                                <h:outputText value="Password*" style="margin-left: 15px;"/><br/>
+                                <h:inputSecret style="width: 250px ; margin-left: 15px;border: none" id="password" value="#{accountMB. clientAccount.accountPassWord}"></h:inputSecret>
+                                <h:messages style="color: red" for="password"/>
+                            </div>
+
+
+
+
+
+
+                        </div>
+                        <br/>
+                        <div style="margin-bottom: 50px;" class="btn-goshop">
+
+                            <h:commandButton  style="width: 250px; margin-left: 76px;" class="btn btn-success" id="submit" value="REGISTER" action="#{accountMB.register()}"/>
+                            <br/><br/>
+                            <a style="margin-left: 76px;" href="login.xhtml">
+                                <i class="fa-solid fa-hand-point-left fa-bounce"></i> Go back to login
+                            </a> 
+                        </div>
+                    </div>
+                </h:form>
+
+              
+            </ui:define>
+              <ui:define name="footer">
+                        
+                </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

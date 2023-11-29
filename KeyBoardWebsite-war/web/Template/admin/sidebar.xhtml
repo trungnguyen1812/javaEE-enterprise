@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <!-- Sidebar Start -->
+            <div class="sidebar pe-4 pb-3">
+                <nav class="navbar bg-secondary navbar-dark">
+                    <div style="margin-left: 10px; margin-top: 10px;margin-bottom: 50px;">
+                        <a href="index.html" class="navbar-brand mx-4 mb-3">
+                            <a class="navbar-brand text-success logo h1 align-self-center" href="faces/index.xhtml">
+                                <img src="assets/img/logo.png" alt="" style="width: 100px;height: 60px;"/>
+                            </a>    
+                        </a>
+                    </div>
+
+                    <div class="d-flex align-items-center ms-4 mb-4">
+                        <div class="position-relative">
+                            <img class="rounded-circle" src="admin-style/img/user.jpg" alt="" style="width: 40px; height: 40px;"/>
+                            <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-0">Jhon Doe</h6>
+                            <span>Admin</span>
+                        </div>
+                    </div>
+                    <div class="navbar-nav w-100">
+                        <a href="adminHome.xhtml" class="nav-item nav-link active"><i class="fa fa-home"></i>Products</a>
+                        <a href="categoryAdmin.xhtml" class="nav-item nav-link"><i class="fa fa-th me-1"></i>Category</a>
+                        <a href="table.html" class="nav-item nav-link"><i class="fa fa-receipt"></i>Order</a>
+                        <a href="chart.html" class="nav-item nav-link"><i class="fa fa-phone"></i>Contact</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-user"></i>Account</a>
+                            <div class="dropdown-menu bg-transparent border-0">
+                                <a href="managerAccountAdmin.xhtml" class="dropdown-item">Admin</a>
+                                <a href="managerAccountClient.xhtml" class="dropdown-item">Client</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- Sidebar End -->
+
+        </ui:composition>
+    </h:body>
+</html>

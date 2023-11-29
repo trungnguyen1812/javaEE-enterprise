@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+           <ui:composition template="/Template/admin/layout.xhtml">
+            <ui:define name="contentsadmin">
+                <div class="content">
+                    <nav  class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+
+                        <a href="#" class="sidebar-toggler flex-shrink-0">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <form class="d-none d-md-flex ms-4">
+                            <input class="form-control bg-dark border-0" type="search" placeholder="Search"/>
+                        </form>
+                        <div class="navbar-nav align-items-center ms-auto">
+
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                    <img class="rounded-circle me-lg-2" src="admin-style/img/user.jpg" alt="" style="width: 40px; height: 40px;"/>
+                                    <span class="d-none d-lg-inline-flex">John Doe</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                                    <a href="#" class="dropdown-item">My Profile</a>
+                                    <a href="#" class="dropdown-item">Settings</a>
+                                    <a href="#" class="dropdown-item">Log Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <h:form enctype="multipart/form-data">
+                        <div class="contentPro">
+                            <div class="textInput">
+                              
+                                <label>Name Product</label>
+                                <div class="">
+                                    <h:inputText class="inputPro" id="productName" value="#{productsMB.products.productName}"/>
+                                    <h:message for="productName"/>
+                                </div>
+                                <br/>
+                                <label>Quanlity</label>
+                                <div class="">
+                                    <h:inputText class="inputPro" id="quanlity" value="#{productsMB.products.quanlity}"/>
+                                    <h:message for="quanlity"/>
+                                </div>
+                                <br/>
+                                <label> Price</label>
+                                <div class="">
+                                    <h:inputText class="inputPro" id="price"  value="#{productsMB.products.price}"/>
+                                    <h:message for="price"/>
+                                </div>
+                                <br/>
+                                <label> Description</label>
+                                <div class="">
+                                    <h:inputText class="inputPro" id="description"  value="#{productsMB.products.description}"/>
+                                    <h:message for="description"/>
+                                </div>
+                                <br/>
+                                <label> CategoryID</label>
+                                <div style="width: 90%;height: 35px;">
+                                    <h:selectOneMenu  id="categoryID" value="#{productsMB.categoryID}" >
+                                        <f:selectItems value="#{categoryMB.showAllCategori()}" var="item" itemValue="#{item.categoryID}" itemLabel="#{item.categoryName}"/>
+                                    </h:selectOneMenu>
+                                    <h:message for="categoryID"/>
+                                </div>
+                                <br/>
+                                <label> Picture</label>
+                                <div class="">
+                                    <h:inputFile class="inputimg" id="imgfile" onchange="choosefile(this)"  value="#{productsMB.fileImage}"/>
+                                     <h:graphicImage url="../assets/img/#{productsMB.products.picture}" style="width: 300px ;height: 200px"/>
+                                     &nbsp; <i style="width: 30px ; height: 30px" class="bi bi-arrow-right-circle-fill"></i> &nbsp;
+                                     <img src="" alt=""  width="300" height="200" id="image"/>
+                                    <h:message for=""/>
+                                </div>
+                                <br/>
+                                <h:commandButton  class="btn_create" value="Update" action="#{productsMB.updateProduct()}"></h:commandButton>
+                            </div>
+
+                        </div>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

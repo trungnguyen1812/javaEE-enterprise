@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="admin-style/css/loginAdmin.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition template = "Template/admin/loginAdmin/layoutLogin.xhtml">  
+            <ui:define name = "content">    
+                <h:form>
+                    <div class="container">
+                        <div class="screen">
+                            <div class="screen__content">
+                                <div class="login">
+
+                                    <div class="login__field">
+                                        <i class="login__icon fas fa-user"></i>
+                                        <span>Name</span><br/>
+                                        <h:inputText style="color: #00ffff" id="text" value="#{adminMB.accountName}" class="login__input" ></h:inputText>
+                                    </div>
+                                    <div class="login__field">
+                                        <i class="login__icon fas fa-lock"></i>
+                                        <span>Password</span>
+                                        <h:inputSecret style="color: #00ffff" value="#{adminMB.acountPass}" id="password" class="login__input" ></h:inputSecret>
+                                    </div>
+
+
+                                    <h:commandButton style="width: 300px;" class="button login__submit" id="submit" value="LOGIN" action="#{adminMB.checkLogin()}"/>
+
+
+                                </div>>
+                                <div class="social-login">
+                                    <h3>log in admin</h3>
+                                    <div class="social-icons">
+                                        <a href="#" class="social-login__icon fab fa-instagram"></a>
+                                        <a href="#" class="social-login__icon fab fa-facebook"></a>
+                                        <a href="#" class="social-login__icon fab fa-twitter"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screen__background">
+                                <span class="screen__background__shape screen__background__shape4"></span>
+                                <span class="screen__background__shape screen__background__shape3"></span>		
+                                <span class="screen__background__shape screen__background__shape2"></span>
+                                <span class="screen__background__shape screen__background__shape1"></span>
+                            </div>		
+                        </div>
+                    </div>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+
+
+    </h:body>
+</html>
